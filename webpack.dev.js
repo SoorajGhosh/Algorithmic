@@ -7,13 +7,16 @@ module.exports = merge(common,{
 	mode: "development",
 	output: {
 		filename: "[name].bundle.js",
-		path: path.resolve(__dirname,"dist")
+		path: path.resolve(__dirname,"dist/")
 	},
 	plugins: [
 		new HtmlWebpackPlugin({
 			template: "./src/html/template.html",
 		})
 	],
+	optimization: {
+        runtimeChunk: 'single'
+    },
 	module:{
 		rules: [
 			{
@@ -26,8 +29,10 @@ module.exports = merge(common,{
 			}
 	]},
 	devServer: {
-		contentBase: path.join(__dirname, 'dist'),
-		compress: true,
+		contentBase: path.resolve(__dirname,"dist/"),
+		compress: false,
+		hot: true,
+		open: false,
 		port: 9000,
 	},
 });
