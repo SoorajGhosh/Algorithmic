@@ -33,6 +33,7 @@ module.exports = merge(common,{
 		compress: false,
 		hot: true,
 		open: false,
+		host: '0.0.0.0',
 		port: 9000,
 	},
 });
