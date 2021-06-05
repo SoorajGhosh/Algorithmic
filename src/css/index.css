@@ -4,11 +4,11 @@
     --light-white: #afa8b9;
     --primary-grey: #E5E5E5;
     --primary-blue: #19172E;
-    --xl-font: 42px;
-    --l-font: 24px;
-    --ml-font: 18px;
-    --m-font: 14px;
-    --s-font: 10px;
+    --xl-font: 4rem;
+    --l-font: 2.5rem;
+    --ml-font: 1.5rem;
+    --m-font: 1rem;
+    --s-font: 0.5rem;
 }
 @media only screen and (max-width: 600px){
     :root{
@@ -23,11 +23,16 @@
 
 *{
     color: var(--primary-white);
-    font-size: 12px;
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+    font-size: 16px;
     font-family: Arial, Helvetica, sans-serif;
+}
+@media only screen and (max-width: 1300px){
+    *{
+        font-size: 12px;
+    }
 }
 
 body{
@@ -39,9 +44,10 @@ body{
     display: grid;
     height: 100vh;
     width: 100vw;
+    overflow: hidden;
     background-color: var(--primary-blue);
     grid-template-columns: 0.25fr 1fr 0.25fr;
-    grid-template-rows: 100px 72vh auto 20px;
+    grid-template-rows: 10vh 76vh 8vh 2vh;
     row-gap: 10px;
     column-gap: 10px;
     grid-template-areas: 
@@ -183,6 +189,17 @@ body{
 }
 
 .algo-option{
+    transition: 100ms;
+    cursor: pointer;
+}
+
+.algo-option-active{
+    color: var(--primary-white);
+    transform: scale(1.03);
+}
+
+.algo-option:hover{
+    color: var(--primary-red);
 }
 
 .status-bar{
@@ -227,6 +244,17 @@ body{
     border: 3px solid var(--primary-white);
 }
 
+.btn{
+    cursor: pointer;
+    transition: 0.3s;
+    color: var(--light-white);
+}
+
+.btn:hover{
+    transform: scale(1.02);
+    color: var(--primary-white);
+}
+
 .canvas-btns{
     position: relative;
     grid-area: canvas-btns;
@@ -250,7 +278,8 @@ body{
     align-items: center;
     justify-content: center;
     width: 100%;
-    height: 40px;
+    height: fit-content;
+    padding: 10px 0px;
     font-size: var(--ml-font);
     border-radius: 10px;
     border: 2px solid var(--primary-red);
@@ -276,6 +305,7 @@ body{
         display: none;
     }
 }
+
 
 footer{
     grid-area: footer;
