@@ -41,11 +41,11 @@ class CellObj{
 
 
 export const cell = new CellObj({
-    w : 10,
-    h : 10,
+    w : 3,
+    h : 3,
     x : 0,
     y : 0,
-    speed : 5,
+    speed : 1,
     canvas:canvas
 });
 
